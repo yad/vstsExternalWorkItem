@@ -6,23 +6,23 @@ interface ExternalWorkItemProps {
 }
 
 interface ExternalWorkItemState {
-    workitemUrl: string;
+    workItemUrl: string;
 }
 
 export class ExternalWorkItem extends React.Component<ExternalWorkItemProps, ExternalWorkItemState> {
     constructor(props: ExternalWorkItemProps) {
         super(props);
-        this.state = { workitemUrl: "" } as ExternalWorkItemState;
+        this.state = { workItemUrl: "" } as ExternalWorkItemState;
     }
 
     handleChange = (e: React.FormEvent<{}>, newValue: string) => {
-        this.setState({ workitemUrl: newValue });
+        this.setState({ workItemUrl: newValue });
     };
 
     render() {
         return (
             <div>
-                <TextField hintText="Your workitem system base url" value={this.state.workitemUrl} onChange={this.handleChange} />
+                <TextField hintText="Your workitem system base url" value={this.state.workItemUrl} onChange={this.handleChange} />
             </div>
         )
     }
