@@ -21,3 +21,8 @@ it('App component contains an element with container css class', () => {
   const wrapper = shallow(<App />);
   expect(wrapper.find('.App')).toHaveLength(1);
 });
+
+it('App component contains an element with MuiThemeProvider', () => {
+  const wrapper = shallow(<App />);
+  expect(wrapper.find('MuiThemeProvider')).toHaveLength(1);
+});
