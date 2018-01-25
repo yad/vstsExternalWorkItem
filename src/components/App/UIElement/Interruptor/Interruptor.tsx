@@ -1,28 +1,20 @@
 import * as React from 'react';
 import { Toggle } from "material-ui";
 
-interface InterruptorProps {
+interface IInterruptorProps {
     value?: boolean;
+    onToggle?: (e: React.MouseEvent<{}>, isInputChecked: boolean) => {};
 }
 
-interface InterruptorState {
-    enabled: boolean;
-}
-
-export class Interruptor extends React.Component<InterruptorProps, InterruptorState> {
-    constructor(props: InterruptorProps) {
+export class Interruptor extends React.Component<IInterruptorProps> {
+    constructor(props: IInterruptorProps) {
         super(props);
-        this.state = { enabled: true } as InterruptorState;
     }
-
-    handleChange = (e: React.MouseEvent<{}>, isInputChecked: boolean) => {
-        this.setState({ enabled: isInputChecked });
-    };
 
     render() {
         return (
             <div>
-                <Toggle label="Enable extension" checked={this.state.enabled} onToggle={this.handleChange} />
+                <Toggle label="Enable extension" checked={this.props.value} onToggle={this.props.onToggle} />
             </div>
         )
     }
