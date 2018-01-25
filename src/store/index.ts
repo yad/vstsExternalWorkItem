@@ -1,10 +1,17 @@
 import { createStore } from 'redux';
-import reducer from './reducer';
 
-export const configureStore = () => (
-    createStore(
-        reducer,
-        // tslint:disable-next-line:no-any
-        (window as any).__REDUX_DEVTOOLS_EXTENSION__ && (window as any).__REDUX_DEVTOOLS_EXTENSION__()
-    )
-);
+import rootReducer from "./reducer";
+import { IStateForm } from '../form/form.reducer';
+
+let store: any = null;
+
+export const configureStore = () => {
+    store = createStore<IStateForm>(
+        rootReducer,
+        {interruptor: true}
+    );
+
+    return store;
+};
+
+export const getStore = () => store;
