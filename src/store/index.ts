@@ -1,7 +1,6 @@
 import { createStore } from 'redux';
-
 import rootReducer from "./reducer";
-import { IStateForm } from '../form/form.reducer';
+import { IStateForm } from '../form/form.interfaces';
 
 let store: any = null;
 
