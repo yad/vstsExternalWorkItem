@@ -1,19 +1,19 @@
 import {IAction, IDataAction} from "./../store/actions";
 import Actions from "./form.actions";
-import { IStateForm } from "./form.interfaces";
 import {saveForm} from "./form.service";
+import { IStateApp } from "../app.interfaces";
 
-const updateModel = (state: IStateForm): IStateForm => {
+const updateModel = (state: IStateApp): IStateApp => {
     saveForm(state);
     return ({
         ...state
     })
 };
 
-export default (state: IStateForm, action: IAction) : IStateForm => {
+export default (state: IStateApp, action: IAction) : IStateApp => {
     switch (action.type) {
-        case Actions.types.UPDATE_INTERRUPTOR:
-            return updateModel({...state, interruptor: (action as IDataAction<boolean>).data});                
+        case Actions.types.UPDATE_ENABLED:
+            return updateModel({...state, enabled: (action as IDataAction<boolean>).data});                
         case Actions.types.UPDATE_VSTS:
             return updateModel({...state, vsts: (action as IDataAction<string>).data});                
         case Actions.types.UPDATE_WORKITEM:
