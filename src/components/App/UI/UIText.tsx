@@ -1,13 +1,13 @@
 import * as React from 'react';
 import { TextField } from "material-ui";
 
-interface IExternalWorkItemProps {
+interface IUITextProps {
     value?: string;    
     onChange?: (e: React.FormEvent<{}>, newValue: string) => {};
 }
 
-export class ExternalWorkItem extends React.Component<IExternalWorkItemProps> {
-    constructor(props: IExternalWorkItemProps) {
+export class UIText extends React.Component<IUITextProps> {
+    constructor(props: IUITextProps) {
         super(props);
     }
 
