@@ -1,6 +1,6 @@
 import * as React from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import { Interruptor, VisualStudio, ExternalWorkItem } from './UIElement';
+import { UIInterruptor, UIText } from './UI';
 
 export interface AppBindingProps {
   interruptor?: boolean,
@@ -21,9 +21,9 @@ export class App extends React.Component<AppProps> {
     return (
       <MuiThemeProvider>
         <div className="App">
-          <Interruptor value={interruptor} onToggle={onToggleInterruptor} />
-          <VisualStudio value={visualStudio} onChange={onChangeVisualStudio} />
-          <ExternalWorkItem  value={externalWorkItem} onChange={onChangeExternalWorkItem} />
+          <UIInterruptor value={interruptor} onToggle={onToggleInterruptor} />
+          <UIText value={visualStudio} onChange={onChangeVisualStudio} />
+          <UIText  value={externalWorkItem} onChange={onChangeExternalWorkItem} />
         </div>
       </MuiThemeProvider>
     )

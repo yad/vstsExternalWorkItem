@@ -1,13 +1,13 @@
 import * as React from 'react';
 import { Toggle } from "material-ui";
 
-interface IInterruptorProps {
+interface IUIInterruptorProps {
     value?: boolean;
     onToggle?: (e: React.MouseEvent<{}>, isInputChecked: boolean) => {};
 }
 
-export class Interruptor extends React.Component<IInterruptorProps> {
-    constructor(props: IInterruptorProps) {
+export class UIInterruptor extends React.Component<IUIInterruptorProps> {
+    constructor(props: IUIInterruptorProps) {
         super(props);
     }
 
