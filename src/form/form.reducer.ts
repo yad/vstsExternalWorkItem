@@ -1,10 +1,14 @@
 import {IAction, IDataAction} from "./../store/actions";
 import Actions from "./form.actions";
 import { IStateForm } from "./form.interfaces";
+import {saveForm} from "./form.service";
 
-const updateModel = (state: IStateForm): IStateForm => ({
-    ...state
-});
+const updateModel = (state: IStateForm): IStateForm => {
+    saveForm(state);
+    return ({
+        ...state
+    })
+};
 
 export default (state: IStateForm, action: IAction) : IStateForm => {
     switch (action.type) {
