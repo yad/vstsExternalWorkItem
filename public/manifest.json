@@ -14,12 +14,13 @@
   "browser_action": {
     "default_popup": "index.html"
   },
-  "web_accessible_resources" :[
-      "/pullRequest/pullRequest.html",
-      "/member/member.html",
-      "/spinner/spinner.html",
-      "/settings/settings.html"
+  "content_scripts" :[
+    {
+      "js": [ "jquery-3.1.1.min.js", "content.js" ],
+      "matches": [ "http://*/*", "https://*/*"]
+    }
   ],
-  "permissions": [
-  ]
+  "background": {
+    "scripts": ["jquery-3.1.1.min.js", "background.js"]
+}
 }
