@@ -3,7 +3,8 @@
     $(function() {
         const url = window.location.href;
         const vstsPattern = ".visualstudio.com";
-        if (url.includes(vstsPattern)) {
+        const pullRequestPattern = "/pullrequest/"
+        if (url.includes(vstsPattern) && url.includes(pullRequestPattern)) {
             console.log("[vsts-external-workitem-extension] Current page is a .visualstudio.com page.");
             function injectScript(file, node) {
                 var th = document.getElementsByTagName(node)[0];
@@ -31,8 +32,6 @@
                 if (!url.includes(state.vsts || "")) {
                     return;
                 }
-
-                console.log($("div.vc-pullrequest-leftpane-section"));
 
                 const officialModule = $("div.vc-pullrequest-leftpane-section").has($("div.vc-pullrequest-workitem-container"));
                 officialModule.hide();
