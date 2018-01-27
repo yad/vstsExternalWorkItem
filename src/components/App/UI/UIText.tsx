@@ -4,6 +4,7 @@ import { TextField } from "material-ui";
 interface IUITextProps {
     value?: string;    
     onChange?: (e: React.FormEvent<{}>, newValue: string) => {};
+    hintText?: string;
 }
 
 export class UIText extends React.Component<IUITextProps> {
@@ -14,7 +15,7 @@ export class UIText extends React.Component<IUITextProps> {
     render() {
         return (
             <div>
-                <TextField hintText="Your workitem system base url" value={this.props.value} onChange={this.props.onChange} />
+                <TextField hintText={this.props.hintText} value={this.props.value} onChange={this.props.onChange} />
             </div>
         )
     }

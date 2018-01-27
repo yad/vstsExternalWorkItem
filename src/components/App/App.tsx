@@ -22,8 +22,8 @@ export class App extends React.Component<AppProps> {
       <MuiThemeProvider>
         <div className="App">
           <UIInterruptor value={enabled} onToggle={onToggleInterruptor} />
-          <UIText value={vsts} onChange={onChangeVsts} />
-          <UIText  value={externalWorkItem} onChange={onChangeExternalWorkItem} />
+          <UIText value={vsts} onChange={onChangeVsts} hintText="https://your.visualstudio.com/" />
+          <UIText value={externalWorkItem} onChange={onChangeExternalWorkItem} hintText="https://your.code.workitem/#" />
         </div>
       </MuiThemeProvider>
     )
