@@ -3,8 +3,7 @@
     $(function() {
         const url = window.location.href;
         const vstsPattern = ".visualstudio.com";
-        const pullRequestPattern = "/pullrequest/"
-        if (url.includes(vstsPattern) && url.includes(pullRequestPattern)) {
+        if (url.includes(vstsPattern)) {
             console.log("[vsts-external-workitem-extension] Current page is a .visualstudio.com page.");
             function injectScript(file, node) {
                 var th = document.getElementsByTagName(node)[0];
@@ -12,8 +11,9 @@
                 s.setAttribute('type', 'text/javascript');
                 s.setAttribute('src', file);
                 th.appendChild(s);
+                console.log(`File ${file} successfully injected !`)
             }
-            injectScript( chrome.extension.getURL('inject.js'), 'body');
+            injectScript(chrome.extension.getURL('inject.js'), 'body');
 
             let interval = null;
             run = (state) => {
@@ -29,7 +29,7 @@
                     return;
                 }
 
-                if (!url.includes(state.vsts || "")) {
+                if (!url.includes(state.vsts)) {
                     return;
                 }
 
@@ -83,7 +83,6 @@
                         `<span class="statusText">${label}</span>` +
                     '</div>' +
                 '</div>');
-
         }
     });
     chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
