@@ -1,6 +1,6 @@
 {
   "name": "vsts-external-workitem",
-  "version": "0.1.0",
+  "version": "1.0.1",
   "private": true,
   "dependencies": {
     "@storybook/addon-actions": "^3.3.10",
